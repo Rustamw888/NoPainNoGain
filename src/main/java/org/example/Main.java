@@ -13,25 +13,46 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        System.out.println(conversionMethod(0, 50));
+//        System.out.println(conversionMethod(0, 50));
+        eval(0, 10);
     }
 
-    public static String conversionMethod(Integer a, Integer b) {
+//    public static String conversionMethod(Integer a, Integer b) {
+//        if (a > b) {
+//            Double c = ((a - b)/2) * 1.0;
+//            return c.toString();
+//        }
+//        else if (a < b) {
+//            if (a != 0) {
+//                Double c = b/a * 1.0;;
+//                return c.toString();
+//            } else {
+//                return "Ошибка при делении на ноль";
+//            }
+//        }
+//        else {
+//            Double c = Double.valueOf(a);
+//            return c.toString();
+//        }
+//    }
+
+    public static double eval(int a, int b) {
+        double c;
         if (a > b) {
-            Double c = ((a - b)/2) * 1.0;
-            return c.toString();
+            c = div((a - b), 2);
+        } else if (a < b) {
+            c = div(b, a);
+        } else {
+            c = a;
         }
-        else if (a < b) {
-            if (a != 0) {
-                Double c = b/a * 1.0;;
-                return c.toString();
-            } else {
-                return "Ошибка при делении на ноль";
-            }
+        System.out.println(c);
+        return c;
+    }
+
+    private static double div(int divisible, int divisor) {
+        if (divisor == 0) {
+            throw new ArithmeticException("Ошибка при делении на ноль");
         }
-        else {
-            Double c = Double.valueOf(a);
-            return c.toString();
-        }
+        return (double) divisible / divisor;
     }
 }
